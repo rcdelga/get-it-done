@@ -7,6 +7,18 @@
 		<title>{{title}}</title>
 	</head>
 	<body>
+		<div>
+			<a href='/logout'>Logout</a>
+		</div>
+
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			<ul>
+			{% for category,message in messages %}
+				<li class="{{category}}">{{message}}</li>
+			{% endfor %}
+			</ul>
+		{% endwith %}
+
 
 		{% block content %}
 		{% endblock %}
